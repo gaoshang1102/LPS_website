@@ -1,0 +1,25 @@
+suppressMessages(library(ggplot2))
+suppressMessages(library(rhdf5))
+suppressMessages(library(magick))
+gg_color_hue <- function(n) { hues = seq(15, 375, length = n + 1) 
+                            hcl(h = hues, l = 65, c = 100)[1:n] }
+datDay1_1 <- cbind(h5read("./Day1_hdf5file.h5", name = "Dimension_reduction/UMAP/df_2D"), 
+                   h5read("./Day1_hdf5file.h5", name = "Dimension_reduction/TSNE/df_2D"))
+datDay1_1$cluster <- as.factor(h5read("./Day1_hdf5file.h5", name = "Cell_meta/Default_clustering"))
+colnames(datDay1_1)[1:2] <- c("UMAP_1","UMAP_2")
+p_2d_plot <- function(rd_method, cluster_no){
+  plot_2d <- ggplot(datDay1_1, aes(datDay1_1[, paste0(rd_method, "_1")], datDay1_1[, paste0(rd_method, "_2")], 
+                                   color = factor(ifelse(datDay1_1$cluster==as.integer(cluster_no), as.integer(cluster_no), 0)))) +
+    geom_point() + theme_bw() +  xlab(paste0(rd_method, "_1")) + ylab(paste0(rd_method, "_2")) + 
+    guides(colour = guide_legend(override.aes = list(size=4))) + 
+    scale_color_manual(name = paste0("cluster ", cluster_no), 
+                       values = c("#F1F1F1", gg_color_hue(length(table(datDay1_1$cluster)))[as.integer(cluster_no)] ))
+  return(plot_2d)
+}
+
+p <- p_2d_plot(input[[1]], input[[2]])
+fig <- image_graph(width = 400, height=400, res=96)
+print(p)
+dev.off()
+figpng <- image_write(fig, path=NULL, format="png")
+do.call(print, list(figpng))

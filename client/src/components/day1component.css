@@ -1,0 +1,107 @@
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+.main-container{
+    display: flex;
+}
+.main-container > div{
+    flex:1;
+}
+.dropdown{
+    position: absolute;
+    top:100px;
+    height: 40px;
+    width:245px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dropdown1{
+    width:245px;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dropdown-cluster{
+    position: absolute;
+    top:160px;
+    height: 40px;
+    width: 245px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.dropdown-cluster1{
+    position:relative;
+    top: 20px;
+    height: 40px;
+    width: 245px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btn {
+    position: relative;;
+    top:150px;
+    left:70px;
+    height: 40px;
+}
+.btn1{
+    position: relative;
+    top: 40px;
+    left:70px;
+    height: 40px;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 2px;
+    color:white;
+}
+/* .form-container{
+
+ } */
+.img-container-1{
+    left:100px;
+}
+.img-container-2{
+    left:100px;
+}
+.gene-container{
+    position: absolute;
+    top:500px;
+    width:1000px;
+}
+.gene-style{
+    display:flex;
+}
+.gene-style > div{
+    flex:1;
+}
+.input-group{
+    position: relative;
+    margin-left:100px;
+    height: 40px;
+}
+.input-text{
+    height:40px;
+    width:500px;
+}
+.go-container{
+    position: absolute;
+    top:950px;
+    display:flex;
+}
+.go-container >div{
+    flex:1;
+}
+.Api1{
+    position: absolute;
+    left:300px;
+    
+}
+.imgene{
+    position: relative;
+    top:20px;
+    text-align:center;
+}
+.btn1{
+    background-color: grey;
+}
