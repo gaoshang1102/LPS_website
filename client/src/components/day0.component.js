@@ -92,8 +92,7 @@ export default class day0 extends Component{
                 <select className = "dropdown-cluster" name="cluster" value = {cluster} onChange={this.onChangeOption}>
                     <option selected  >Select Cluster</option>
                     <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
-                    <option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
-                    <option>13</option><option>14</option><option>15</option>
+                    <option>7</option>
                 </select>
 
                 <button type = "submit"  className="btn btn-secondary">Generate</button>
