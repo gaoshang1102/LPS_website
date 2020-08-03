@@ -10,7 +10,7 @@ colnames(datHour6_1)[1:2] <- c("UMAP_1","UMAP_2")
 p_2d_plot <- function(rd_method, cluster_no){
   plot_2d <- ggplot(datHour6_1, aes(datHour6_1[, paste0(rd_method, "_1")], datHour6_1[, paste0(rd_method, "_2")], 
                                    color = factor(ifelse(datHour6_1$cluster==as.integer(cluster_no), as.integer(cluster_no), 0)))) +
-    geom_point() + theme_bw() +  xlab(paste0(rd_method, "_1")) + ylab(paste0(rd_method, "_2")) + 
+    geom_point(size=0.7) + theme_bw() +  xlab(paste0(rd_method, "_1")) + ylab(paste0(rd_method, "_2")) + 
     guides(colour = guide_legend(override.aes = list(size=4))) + 
     scale_color_manual(name = paste0("cluster ", cluster_no), 
                        values = c("#F1F1F1", gg_color_hue(length(table(datHour6_1$cluster)))[as.integer(cluster_no)] ))

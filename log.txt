@@ -1,7 +1,8 @@
 Aug1st:
-logo picture
-web name
-initial picture
-data reanalysis (with small population)
-R code modification
+logo picture (checked)
+web name (checked)
+initial picture (checked)
+data reanalysis (with small population) 
+R code modification (checked)
 domain name
+gene expression figure reshape (checked)

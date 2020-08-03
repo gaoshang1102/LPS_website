@@ -9,7 +9,7 @@ rownames(expressions) <- h5read("./Hour6_hdf5file.h5", name = "Gene_meta/Gene_Na
 colnames(datHour6_2)[1:2] <- c("UMAP_1","UMAP_2")
 p_2d_plot <- function(rd_method, gene_name){
   plot_2d <- ggplot(datHour6_2, aes(datHour6_2[, paste0(rd_method, "_1")], datHour6_2[, paste0(rd_method, "_2")], 
-                      color = expressions[gene_name, ])) + geom_point() + theme_bw() +
+                      color = expressions[gene_name, ])) + geom_point(size=0.7) + theme_bw() +
   xlab(paste0(rd_method, "_1")) + ylab(paste0(rd_method, "_2")) +
   scale_colour_gradient(name = paste0(gene_name, "\n expression"), 
                         low = "#FFEDED", high = "red",
@@ -18,7 +18,7 @@ p_2d_plot <- function(rd_method, gene_name){
 }
 
 p <- p_2d_plot(input[[1]], input[[2]])
-fig <- image_graph(width = 400, height=400, res=96)
+fig <- image_graph(width = 500, height=400, res=96)
 print(p)
 dev.off()
 figpng <- image_write(fig, path=NULL, format="png")
